@@ -1,0 +1,64 @@
+body {
+    background: #fff;
+    font-family: "Mukta", "Arial", sans-serif;
+    color: #505f98;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+li {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.title {
+    color: #000;
+}
+
+p {
+    color: #73738D;
+}
+
+h6, h5, h4, h3, h2, h1 {
+    display: inline !important;
+}
+
+input {
+    border-width: 0px;
+    border: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.features {
+    columns: 2;
+    padding: 0;
+    list-style-type: none;
+}
+
+.features-item {
+    position: relative;
+    display: flex;
+}
+
+.features-item img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9.24px;
+    height: 6.93px;
+}
+
+.features-item h6 {
+    position: relative;
+    left: 10%;
+}
