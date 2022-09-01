@@ -1,4 +1,6 @@
-
+.hero > .container {
+    margin-top: 0;
+}
 
 .hero__inner {
     position: relative;
