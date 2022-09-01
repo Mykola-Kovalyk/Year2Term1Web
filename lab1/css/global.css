@@ -9,10 +9,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    left: 15%;
-    right: 15%;
+    margin: 0 auto;
     width: 70%;
-    margin-top: 75px;
+    max-width: 900px;
 }
 
 ul {
@@ -79,8 +78,6 @@ input:focus {
 
     .container {
         flex-direction: column;
-        left: 20px;
-        right: 20px;
         width: calc(100% - 40px);
     }
 }
