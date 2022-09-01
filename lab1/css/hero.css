@@ -1,14 +1,8 @@
-.container.hero {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .hero__inner {
-    position: inherit;
-    width: 429px;
-    height: 97.03px;
-    margin-top: 101.19px;
-    top: 197.52px;
+    position: relative;
+    max-width: 429px;
 }
 
 .hero__paragraph {
@@ -43,10 +37,16 @@
     box-sizing: border-box;
     border: 0;
     border-radius: 33.9597px;
+    transition: background-color 0.25s ease-in;
+}
+
+.hero__try-it-for-free:hover {
+    background-color: #26C296;
 }
 
 .hero__phone {
     position: relative;
+    z-index: -1;
 }
 
 .phone__circle {

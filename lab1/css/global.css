@@ -6,8 +6,18 @@ body {
 
 .container {
     position: relative;
-    margin: 0 auto;
-    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 15%;
+    right: 15%;
+    width: 70%;
+    margin-top: 75px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
 }
 
 li {
@@ -41,8 +51,6 @@ input:focus {
 
 .features {
     columns: 2;
-    padding: 0;
-    list-style-type: none;
 }
 
 .features-item {
@@ -61,4 +69,18 @@ input:focus {
 .features-item h6 {
     position: relative;
     left: 10%;
+}
+
+@media screen and (max-width: 970px) {
+    body {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+    }
 }

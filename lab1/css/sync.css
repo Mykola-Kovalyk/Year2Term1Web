@@ -1,21 +1,24 @@
-.container.sync {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 75px;
-}
-
 .sync__info {
-    width: 368.01px;
+    margin-right: 25px;
+    max-width: 368.01px;
 }
 
 .sync__contact-page {
     position: relative;
-    width: 352.07px;
-    height: 209.3px;
+    max-width: 352.07px;
+    padding: 20px;
     background: #FFFFFF;
     box-shadow: 0px 13.8611px 55.4444px #F2F5FA;
     border-radius: 20.7917px;
 }
+
+.sync__arrows {
+    position: absolute; 
+    top: -75px; 
+    width: 51.98px; 
+    aspect-ratio: 1;
+}
+
 
 .sync__contact-page img {
     width: 41.58px;
@@ -49,4 +52,3 @@
 .sync__contact-info-list li img{
     margin-right: 10px;
 }
-

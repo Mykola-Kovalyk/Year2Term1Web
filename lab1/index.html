@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title>Relationz</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap"
@@ -15,11 +15,12 @@
     <section class="hero">
         <div class="container">
             <header class="header">
-                <div style="display:flex;">
-                    <div class="header__title">Relationz</div>
+                <div class="header__title">
+                    <div class="header__caption">Relationz</div>
                     <a class="header__login" href="">Login</a>
+                    <img class="header__hamburger" src="media/Hamburger.png" onclick="toggleMenu()"/>
                 </div>
-                <nav class="header__nav">
+                <nav id="nav-links" class="header__nav">
                     <ul>
                         <li class="header__nav-item"><a href="">Services</a></li>
                         <li class="header__nav-item"><a href="">Enterprise</a></li>
@@ -29,7 +30,7 @@
                 <button class="header__try-it-for-free">Try it for free</button>
             </header>
         </div>
-        <div class="container hero">
+        <div class="container">
             <div class="hero__inner">
                 <h1 class="title">Take yout relationships <br>
                     to the next level
@@ -52,7 +53,7 @@
         </div>
     </section>
     <section class="reminders">
-        <div class="container reminders">
+        <div class="container">
             <ul class="reminders__list">
                 <li class="reminders__list-item">
                     <img src="media/people/1.png" alt="" class="reminders_list-item-avatar">
@@ -107,9 +108,9 @@
         </div>
     </section>
     <section class="sync">
-        <div class="container sync">
+        <div class="container">
             <div class="sync__info">
-                <img src="media/Arrows.png" style="position:absolute; top: -75px; width: 51.98px; aspect-ratio: 1;">
+                <img class="sync__arrows" src="media/Arrows.png">
                 <h2 class="title">
                     Our sync remembers everything
                 </h2>
@@ -163,7 +164,7 @@
 
     </section>
     <section class="stay-connected">
-        <div class="container stay-connected">
+        <div class="container">
             <div class="stay-connected__content-around-anxiety">
                 <h1>Send content around anxiety</h1><br>
                 <h5 style="color: #222222CC;">3 people on the list</h5><br><br>
@@ -182,8 +183,10 @@
     </section>
     <section class="footer">
         <div class="relationships">
-            <h1>Form better relationships with everyone</h1><br>
-            <h6 style="color: #73738D;">Start your free 14 days trial.</h6>
+            <div class="relationships__text">
+                <h1>Form better relationships with everyone</h1><br>
+                <h6 style="color: #73738D;">Start your free 14 days trial.</h6>
+            </div>
             <button class="footer__try-it-for-free">Try it for free</button>
         </div>
         <footer class="footer">
@@ -199,5 +202,6 @@
             </center> 
         </footer>
     </section>
+    <script src="js/main.js"></script>
 </body>
 </html>
