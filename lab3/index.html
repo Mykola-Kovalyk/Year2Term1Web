@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <title>Relationz</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap"
+    rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero_data-field">
+            <h1>Create parking</h1>
+            <br>
+            <h6>Title</h6>
+            <br>
+            <input id="hero_data-field-title" type="text" minlength="1" required>
+            <br>
+            <h6>Description</h6>
+            <br>
+            <textarea id="hero_data-field-description" type="text" minlength="1" required oninvalid="">
+            </textarea>
+            <br>
+            <button id="hero_data-field-add-item" onclick="addItem()">Submit</button>
+        </div>
+        <div class="hero_data-list">
+            <ul id="hero_data-list">
+                
+            </ul>
+        </div>
+    </section>
+
+    <script src="js/items.js"></script>
+</body>
+</html>
