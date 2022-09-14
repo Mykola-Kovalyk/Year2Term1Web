@@ -1,0 +1,10 @@
+@import "./normalize.min.css";
+
+@import "./global.css";
+
+@import "./header.css";
+@import "./hero.css";
+@import "./reminders.css";
+@import "./sync.css";
+@import "./stay-connected.css";
+@import "./footer.css";
