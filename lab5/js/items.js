@@ -1,3 +1,9 @@
+import { 
+    getParkingList, 
+    postParking, 
+    updateParking, 
+    deleteParking 
+} from "./api.js";
 import { showModal } from "./modal.js";
 import { itemTemplate, EDIT_BUTTON_PREFIX, DELETE_BUTTON_PREFIX } from "./template.js"; 
 
@@ -8,10 +14,7 @@ const dataList = document.getElementById("hero_data-list");
 const titleField = document.getElementById("hero_data-field-title");
 const descriptionField = document.getElementById("hero_data-field-description");
 const slotsField =  document.getElementById("hero_data-field-parking-slots");
-const submitButton = document.getElementById("hero_data-field-add-item");
-const sortButton = document.getElementById("hero_data-field-sort");
 const filterInput = document.getElementById("hero_data-field-search");
-const filterButton = document.getElementById("hero_data-field-filter");
 const totalSlotsField = document.getElementById("hero_data-field-slots");
 
 let parkingFacilities = [];
@@ -33,19 +36,18 @@ window.addItem = function() {
     if(editMode)
     {
         var oldElement = parkingFacilities[itemToEditIndex]
-        parkingFacilities[itemToEditIndex] = { id: oldElement.id, title: titleField.value, description: descriptionField.value, slots: parseInt(slotsField.value) };
+        updateParking(oldElement.id, { title: titleField.value, description: descriptionField.value, slots: parseInt(slotsField.value) }).then(refetchParkingFacilities);
         editMode = false;
     }
     else
     {
-        parkingFacilities.push({ id: idCounter, title: titleField.value, description: descriptionField.value, slots: parseInt(slotsField.value) });
+        postParking({ title: titleField.value, description: descriptionField.value, slots: parseInt(slotsField.value) }).then(refetchParkingFacilities);
         idCounter++;
     }
 
     titleField.value = "";
     descriptionField.value = "";
     slotsField.value = ""
-    refreshList(parkingFacilities);
 }
 
 window.editItem = function(editButton) {
@@ -54,8 +56,10 @@ window.editItem = function(editButton) {
 
     var title = htmlItem.getElementsByClassName("hero_data-list-item-title")[0].innerText;
     var text = htmlItem.getElementsByClassName("hero_data-list-item-text")[0].innerText;
+    var slots = htmlItem.getElementsByClassName("hero_data-list-item-parking-slots")[0].innerText;
     titleField.value = title;
     descriptionField.value = text;
+    slotsField.value = parseInt(slots)
 
     itemToEditIndex = parkingFacilities.findIndex(element => element.id = htmlItem.id);
     editMode = true;
@@ -64,8 +68,7 @@ window.editItem = function(editButton) {
 
 window.deleteItem = function(deleteButton) {
     const item = document.getElementById(deleteButton.id.replace(DELETE_BUTTON_PREFIX, ""));
-    parkingFacilities = parkingFacilities.filter(element => element.id !== parseInt(item.id))
-    refreshList(parkingFacilities);
+    parkingFacilities = deleteParking(item.id).then(refetchParkingFacilities)
 }
 
 
@@ -94,3 +97,18 @@ window.filterItems = function() {
     refreshList(filteredArray)
 }
 
+window.cancelFilter = function() {
+    refreshList(parkingFacilities)
+}
+
+
+const refetchParkingFacilities =  async () => {
+    var parkingFacilityDict = await getParkingList()
+    parkingFacilities = []
+    for(const [id, item] of Object.entries(parkingFacilityDict)) {
+        parkingFacilities.push({ id, title: item.title, description: item.description, slots: item.slots })
+    }
+    refreshList(parkingFacilities)
+}
+
+refetchParkingFacilities()

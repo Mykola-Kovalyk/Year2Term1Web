@@ -11,10 +11,11 @@ export const itemTemplate = ({id, title, description, slots}) => `
                     <div class="hero_data-list-item-text" style="font-size: small; padding: 20px;">
                     ${description}
                     </div>
-                    <div class="hero_data-list-item-parking-slots" style="font-size: small; padding: 20px;">
-                    parking-slots: ${slots}
-                    </div>
                     
+                    <br>
+                    <h6 style="padding: 10px">Number of parking slots: </h6><h6 class="hero_data-list-item-parking-slots">${slots}</h6>
+                    <br>
+
                     <div class="hero_data-list-item-buttons" style="display: flex;">
                         <button class="hero_data-list-item-edit" id="${EDIT_BUTTON_PREFIX}${id}" onclick="editItem(this)">Edit</button>
                         <button class="hero_data-list-item-delete" id="${DELETE_BUTTON_PREFIX}${id}" onclick="deleteItem(this)">Delete</button>
