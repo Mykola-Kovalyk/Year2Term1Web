@@ -1,5 +1,6 @@
 import styles from "./BookNow.module.css"
 import Button from "./basic/Button"
+import { Link } from "react-router-dom";
 
 export default function BookNow(props) {
     return (
@@ -10,7 +11,9 @@ export default function BookNow(props) {
                 <br/>
                 <br/>
                 <br/>
-                <Button className={styles.search_button} text="Search"/>
+                <Link to="/list/filter">
+                    <Button className={styles.search_button} text="Search"/>
+                </Link>
             </center>
         </div>
     );

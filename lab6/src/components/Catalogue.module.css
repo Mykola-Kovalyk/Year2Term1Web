@@ -36,6 +36,17 @@
     margin: 0px 10px;
 }
 
+.setting_exit_button {
+    margin-left: 10px;;
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.setting_exit_button:hover {
+    background-color: #800020;
+}
+
 .title {
 }
 

@@ -19,56 +19,63 @@ export default function Catalogue(props) {
     }
 
     return (
-        <div className={styles.catalogue}>
-            <div className={styles.catalogue_filters}>
-            <h2>See what's available</h2>
-                <Link to="/add">
-                        <Button className={styles.setting_add_button} text="Add"/>
-                </Link>
-                <Link to="/filter">
-                        <Button className={styles.setting_filter_button} text="Filter"/>
-                </Link>
-                <Routes>    
-                    <Route path="/filter" element={
-                        <div>
-                            <br/>
-                            <Button onclick={() => {}} text="Sort by number of slots"/>
+        <Routes>
+            <Route path="/list/*" element={
+                <div className={styles.catalogue}>
+                    <div className={styles.catalogue_filters}>
+                    <h2>See what's available</h2>
+                        <Link to="/list/add">
+                                <Button className={styles.setting_add_button} text="Add"/>
+                        </Link>
+                        <Link to="/list/filter">
+                                <Button className={styles.setting_filter_button} text="Filter"/>
+                        </Link>
+                        <Link to="/">
+                                <Button className={styles.setting_exit_button} text="Exit"/>
+                        </Link>
+                        <Routes>    
+                            <Route path="/filter" element={
+                                <div>
+                                    <br/>
+                                    <Button onclick={() => {}} text="Sort by number of slots"/>
 
-                            <h6>Search for:</h6>
-                            <input itype="text" minLength="1" required />
-                            <br/>
-                            <br/>
-                            <Button onClick={() => {}} text="Search"/>
-                            <br/>
-                            <br/>
-                            <Button id="hero_data-field-cancel-filter" onclick={() => {}} text="Remove filters"/>
-                            <h6>Total amount of slots: {0}</h6>
-                        </div>
-                    }/>
-                    <Route path="/add" element={
-                        <div>
-                            <h2>Add new parking facility</h2>                
+                                    <h6>Search for:</h6>
+                                    <input itype="text" minLength="1" required />
+                                    <br/>
+                                    <br/>
+                                    <Button onClick={() => {}} text="Search"/>
+                                    <br/>
+                                    <br/>
+                                    <Button id="hero_data-field-cancel-filter" onclick={() => {}} text="Remove filters"/>
+                                    <h6>Total amount of slots: {0}</h6>
+                                </div>
+                            }/>
+                            <Route path="/add" element={
+                                <div>
+                                    <h2>Add new parking facility</h2>                
 
-                            <h6>Title</h6>
-                            <input className={styles.title} type="text" minLength="1" required/>
+                                    <h6>Title</h6>
+                                    <input className={styles.title} type="text" minLength="1" required/>
 
-                            <h6>Description</h6>
-                            <textarea className={styles.description} type="text" minLength="1" required></textarea>
+                                    <h6>Description</h6>
+                                    <textarea className={styles.description} type="text" minLength="1" required></textarea>
 
-                            <h6>Number of parking slots</h6>
-                            <input className={styles.slots} type="number" minLength="1" min="0" required/>
-                            <br/>
-                            <br/>
-                            <Button className={styles.add_button} text="Add" onClick={addNewitem}/>
+                                    <h6>Number of parking slots</h6>
+                                    <input className={styles.slots} type="number" minLength="1" min="0" required/>
+                                    <br/>
+                                    <br/>
+                                    <Button className={styles.add_button} text="Add" onClick={addNewitem}/>
 
-                        </div>
-                    }/>
-                </Routes>
-            </div>
-            <div className={styles.catalogue_list}>
-                {context.items.map(parking => <CatalogueElement key={parking.id} element={parking}/>)}
-            </div>
-        </div>
+                                </div>
+                            }/>
+                        </Routes>
+                    </div>
+                    <div className={styles.catalogue_list}>
+                        {context.items.map(parking => <CatalogueElement key={parking.id} element={parking}/>)}
+                    </div>
+                </div>
+            }/>
+        </Routes>
     );
 }
 
