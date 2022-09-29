@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom"
 import BookNow from "./BookNow";
 import Catalogue from "./Catalogue";
 import { ParkingContextProvider } from "./contexts/ParkingContextProvider";
@@ -10,7 +11,6 @@ export default function Navigation(props) {
             <ParkingContextProvider>
                 <Preview />
                 <BookNow />
-
                 <Catalogue />
             </ParkingContextProvider>      
         </div>
