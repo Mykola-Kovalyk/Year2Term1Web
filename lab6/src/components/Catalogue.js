@@ -1,10 +1,11 @@
 import styles from "./Catalogue.module.css"
 import { useContext, useState } from "react"
-import { Routes, Route, useNavigation, Link } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import ParkingContext from "./contexts/ParkingContextProvider";
 import Button from "./basic/Button";
 
 export default function Catalogue(props) {
+    const navigate = useNavigate();
     const context = useContext(ParkingContext);
     const [idCounter, setIdCounter] =  useState(3);
 
@@ -24,15 +25,9 @@ export default function Catalogue(props) {
                 <div className={styles.catalogue}>
                     <div className={styles.catalogue_filters}>
                     <h2>See what's available</h2>
-                        <Link to="/list/add">
-                                <Button className={styles.setting_add_button} text="Add"/>
-                        </Link>
-                        <Link to="/list/filter">
-                                <Button className={styles.setting_filter_button} text="Filter"/>
-                        </Link>
-                        <Link to="/">
-                                <Button className={styles.setting_exit_button} text="Exit"/>
-                        </Link>
+                            <Button className={styles.setting_add_button} text="Add" onClick={() => navigate("/list/add")}/>
+                            <Button className={styles.setting_filter_button} text="Filter"  onClick={() => navigate("/list/filter")}/>
+                            <Button className={styles.setting_exit_button} text="Exit"   onClick={() => navigate("/")}/>
                         <Routes>    
                             <Route path="/filter" element={
                                 <div>
@@ -46,7 +41,7 @@ export default function Catalogue(props) {
                                     <Button onClick={() => {}} text="Search"/>
                                     <br/>
                                     <br/>
-                                    <Button id="hero_data-field-cancel-filter" onclick={() => {}} text="Remove filters"/>
+                                    <Button id="hero_data-field-cancel-filter" onClick={() => {}} text="Remove filters"/>
                                     <h6>Total amount of slots: {0}</h6>
                                 </div>
                             }/>

@@ -1,8 +1,10 @@
 import styles from "./BookNow.module.css"
 import Button from "./basic/Button"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function BookNow(props) {
+    const navigate = useNavigate();
+    
     return (
         <div className={styles.book_now}>
             <center>
@@ -11,9 +13,7 @@ export default function BookNow(props) {
                 <br/>
                 <br/>
                 <br/>
-                <Link to="/list/filter">
-                    <Button className={styles.search_button} text="Search"/>
-                </Link>
+                <Button className={styles.view_button} text="View Parkings" onClick={() => navigate("/list/filter")}/>
             </center>
         </div>
     );
