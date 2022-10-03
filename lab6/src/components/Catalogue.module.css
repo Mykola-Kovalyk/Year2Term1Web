@@ -1,0 +1,59 @@
+
+
+.catalogue {
+    display: flex;
+}
+
+.catalogue_filters {
+    width: 50%;
+    padding: 35px;
+}
+
+.catalogue_list {
+    width: 50%;
+}
+
+.element {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+}
+
+
+.remove_button {
+    margin-left: 10px;;
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.remove_button:hover {
+    background-color: #800020;
+}
+
+.setting_add_button {
+    margin: 0px 10px;
+}
+
+.setting_exit_button {
+    margin-left: 10px;;
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.setting_exit_button:hover {
+    background-color: #800020;
+}
+
+.title {
+}
+
+.description {
+
+}
+
+.slots {
+
+}
