@@ -22,29 +22,3 @@
     padding: 30px;
     width: 40%;
 }
-
-.preview_catalog {
-    display: grid;
-    grid-template-columns: 33.3333% 33.3333% 33.3333% ;
-}
-
-.element {
-    overflow: hidden;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 10px;
-}
-
-.element_image {
-    margin: -20px;
-    margin-bottom: 10px;
-    background-image: url("../../public/parking.jpg");
-    background-size: cover;
-    height: 200px;
-}
-
-
-.element_text {
-    height: 200px;
-}

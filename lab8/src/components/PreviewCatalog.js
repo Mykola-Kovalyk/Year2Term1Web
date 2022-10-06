@@ -6,17 +6,26 @@ import Button from "./basic/Button";
 
 export default function PreviewCatalog(props) {
     const context = useContext(ParkingContext);
+    const [catalogueLength, setCatalogueLength] = useState(3);
 
 
     let previewList = []
 
-    for (let i = 0; i < Math.min(context.items.length, 3) ; i++) {
+    for (let i = 0; i < Math.min(context.items.length, catalogueLength) ; i++) {
         previewList.push(context.items[i]);
     }
 
     return (
-        <div className={styles.catalog}>
-            {previewList.length > 0 ? previewList.map(item => <CatalogItem key={item.id} element={item}/>) : <h6>No items provided</h6>}
+        <div>
+            <div className={styles.catalog}>
+                {previewList.length > 0 ? previewList.map(item => <CatalogItem key={item.id} element={item}/>) : <h6>No items provided</h6>}
+            </div>
+            <center>
+                <Button text="View more" onClick={() => setCatalogueLength(catalogueLength + 3)}/>
+                <br/>
+                <br/>
+                <Button text="View less" onClick={() => setCatalogueLength(catalogueLength - 3)}/>
+            </center>
         </div>
     );
 }
