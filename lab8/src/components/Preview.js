@@ -5,14 +5,6 @@ import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
 import ParkingContext from "./contexts/ParkingContextProvider";
 
 export default function Preview(props) {
-    const context = useContext(ParkingContext);
-
-
-    let previewList = []
-
-    for (let i = 0; i < Math.min(context.items.length, 3) ; i++) {
-        previewList.push(context.items[i]);
-    }
 
     return (
         <div className={styles.preview}>
@@ -33,19 +25,5 @@ export default function Preview(props) {
                 </div>  
             </div>
         </div>   
-    );
-}
-
-function CatalogItem(props) {
-    const context = useContext(ParkingContext);
-    return (
-        <div className={styles.element}>
-            <div className={styles.element_image}/>
-            <div className={styles.element_text}>
-                <h2>{props.element.title}</h2>
-                {props.element.description}
-                <h6>slots: {props.element.slots}</h6>     
-            </div>
-        </div>
     );
 }
