@@ -21,9 +21,15 @@ export default function Catalogue(props) {
         setIdCounter(idCounter + 1);
     }
 
-    function filterItems() {
+    function searchItems() {
         let searchString =  document.getElementsByClassName(styles.searchbar)[0].value;
         let filteredArray = context.items.filter( (facility) => facility.title.search(searchString) !== -1 ||  facility.description.search(searchString) !== -1) 
+        context.setFilteredItems(filteredArray);
+    }
+
+    function filterItems() {
+        let minSlots =  parseInt(document.getElementsByClassName(styles.minimal_slots)[0].value);
+        let filteredArray = context.items.filter( (facility) => facility.slots >= minSlots) 
         context.setFilteredItems(filteredArray);
     }
 
@@ -52,12 +58,18 @@ export default function Catalogue(props) {
                                 <div>
                                     <br/>
                                     <Button onclick={() => context.setFilteredItems(context.items.sort((a, b) => a.slots - b.slots))} text="Sort by number of slots"/>
-
+                                    
                                     <h6>Search for:</h6>
                                     <input className={styles.searchbar} type="text" minLength="1" required />
                                     <br/>
                                     <br/>
-                                    <Button onClick={filterItems} text="Search"/>
+                                    <Button onClick={searchItems} text="Search"/>
+                                    <br/>
+                                    <h6>FIlter items with slots no less than:</h6>
+                                    <input className={styles.minimal_slots} type="number" minLength="1" required />
+                                    <br/>
+                                    <br/>
+                                    <Button onClick={filterItems} text="Filter"/>
                                     <br/>
                                     <br/>
                                     <Button id="hero_data-field-cancel-filter" onClick={() => context.setFilteredItems(null)} text="Remove filters"/>

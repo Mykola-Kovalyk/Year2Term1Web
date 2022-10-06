@@ -6,6 +6,7 @@ import Preview from "./Preview"
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Item from "./Item";
+import PreviewCatalog from "./PreviewCatalog";
 
 export default function Navigation(props) {
 
@@ -21,6 +22,7 @@ export default function Navigation(props) {
                 <Route path="/home/*" element={
                     <div>
                         <Preview />
+                        <PreviewCatalog/>
                         <BookNow />
                     </div>
                 }/>
