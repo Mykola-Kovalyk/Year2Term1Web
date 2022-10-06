@@ -1,4 +1,4 @@
-import LinkButton from "./basic/LinkButton"
+import NavLink from "./basic/NavLink"
 import Button from "./basic/Button"
 import styles from "./Header.module.css"
 
@@ -10,12 +10,12 @@ export default function Header(props) {
                 <b>ParkingPlace</b> 
             </div>
             <div className={styles.nav}>
-                <LinkButton className={styles.link} text="Find" link="" />
-                <LinkButton className={styles.link} text="Popular" link="" />
-                <LinkButton className={styles.link} text="Book" link="" />
+                <NavLink className={styles.link} link="/home">Home</NavLink>
+                <NavLink className={styles.link} link="/catalog/filter">Catalog</NavLink>
+                <NavLink className={styles.link} link="/cart">Cart</NavLink>
             </div>
             <div className={styles.see_parkings}>
-                <Button text="Available Parkings"/>
+                <Button text="Help"/>
             </div>
         </header>
     );

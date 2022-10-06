@@ -1,4 +1,4 @@
-import LinkButton from "./basic/LinkButton";
+import NavLink from "./basic/NavLink";
 import styles from "./Footer.module.css"
 
 
@@ -8,8 +8,8 @@ export default function Footer(props) {
             <center>
                 <div className={styles.background}>
                         <nav className={styles.useful_links}>
-                            <LinkButton text="Privacy" link=""/>
-                            <LinkButton text="Contact Me" link=""/>
+                            <NavLink link="">Privacy</NavLink>
+                            <NavLink link="">Contact Me</NavLink>
                         </nav>
                 </div>
                 <div className={styles.copyright}>

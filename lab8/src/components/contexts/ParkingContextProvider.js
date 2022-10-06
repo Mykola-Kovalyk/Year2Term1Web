@@ -2,9 +2,14 @@ import { useState, createContext } from "react";
 
 const ParkingContext =  createContext({
     items: [],
+    filteredItems: [],
+    filters: false,
+    currentItem: null,
     addItem: (item) => {},
     setItem: (itemId) => {},
-    removeItem: (itemId) => {}
+    removeItem: (itemId) => {},
+    setCurrentItem: (newItem) => {},
+    setFilteredItems: (filteredItems) => {}
 });
 
 
@@ -23,8 +28,23 @@ export function ParkingContextProvider(props) {
             title: "Schevtschenka st.",
             description: "No description provided.",
             slots: 75
+        },
+        {
+            id: 3,
+            title: "Schevtschenka st.",
+            description: "No description provided.",
+            slots: 75
+        },
+        {
+            id: 4,
+            title: "Schevtschenka st.",
+            description: "No description provided.",
+            slots: 75
         }
     ]);
+    const [filtered, setFiltered] =  useState([]);
+    const [current, setCurrent] = useState(null);
+    const [applyFilters, setApplyFilters] = useState(false);
 
     function addNewItem(item) {
         let new_items = list_items.slice();
@@ -42,14 +62,28 @@ export function ParkingContextProvider(props) {
         let new_items = list_items.slice();
         new_items.push(itemId);
         setItems(new_items);
-    } 
+    }
+
+    function  setFilteredList(filteredList) {
+        if(filteredList === null) {
+            setApplyFilters(false);
+        } else {
+            setApplyFilters(true);
+            setFiltered(filteredList)
+        }
+    }
     
 
     const context = {
         items: list_items,
+        filteredItems: filtered,
+        filters: applyFilters,
+        currentItem: current,
         addItem: addNewItem,
         setItem: editSpecifiedItem,
-        removeItem: removeSpecifiedItem
+        removeItem: removeSpecifiedItem,
+        setCurrentItem: setCurrent,
+        setFilteredItems: setFilteredList
     };
     
 
