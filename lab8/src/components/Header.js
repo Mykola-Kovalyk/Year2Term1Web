@@ -15,7 +15,9 @@ export default function Header(props) {
                 <NavLink className={styles.link} link="/cart">Cart</NavLink>
             </div>
             <div className={styles.see_parkings}>
-                <Button text="Help"/>
+                <Button>
+                    Help
+                </Button>
             </div>
         </header>
     );

@@ -13,7 +13,9 @@ export default function BookNow(props) {
                 <br/>
                 <br/>
                 <br/>
-                <Button className={styles.view_button} text="View Parkings" onClick={() => navigate(`/catalog/filter`)}/>
+                <Button className={styles.view_button} onClick={() => navigate(`/catalog/filter`)}>
+                    View Parkings
+                </Button>
             </center>
         </div>
     );

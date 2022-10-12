@@ -21,10 +21,13 @@ export default function PreviewCatalog(props) {
                 {previewList.length > 0 ? previewList.map(item => <CatalogItem key={item.id} element={item}/>) : <h6>No items provided</h6>}
             </div>
             <center>
-                <Button text="View more" onClick={() => setCatalogueLength(catalogueLength + 3)}/>
-                <br/>
-                <br/>
-                <Button text="View less" onClick={() => setCatalogueLength(catalogueLength - 3)}/>
+                <Button onClick={() => { if(catalogueLength < context.items.length) setCatalogueLength(catalogueLength + 3); }}>
+                    View more
+                </Button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <Button onClick={() => { if(catalogueLength > 0) setCatalogueLength(catalogueLength - 3);}}>
+                    View less
+                </Button>
             </center>
         </div>
     );

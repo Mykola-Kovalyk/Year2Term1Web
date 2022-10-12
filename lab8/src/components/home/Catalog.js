@@ -50,29 +50,43 @@ export default function Catalogue(props) {
                 <div className={styles.catalogue}>
                     <div className={styles.catalogue_filters}>
                     <h2>See what's available</h2>
-                            <Button className={styles.setting_add_button} text="Add" onClick={() => goto("/add")}/>
-                            <Button className={styles.setting_filter_button} text="Filter"  onClick={() => goto("/filter")}/>
-                            <Button className={styles.setting_exit_button} text="Exit"  onClick={() => navigate(".")}/>
+                            <Button className={styles.setting_add_button} onClick={() => goto("/add")}>
+                                Add
+                            </Button>
+                            <Button className={styles.setting_filter_button}  onClick={() => goto("/filter")}>
+                                Filter
+                            </Button>
+                            <Button className={styles.setting_exit_button} onClick={() => navigate(".")}>
+                                Exit
+                            </Button>
                         <Routes>    
                             <Route path="/filter" element={
                                 <div>
                                     <br/>
-                                    <Button onclick={() => context.setFilteredItems(context.items.sort((a, b) => a.slots - b.slots))} text="Sort by number of slots"/>
+                                    <Button onclick={() => context.setFilteredItems(context.items.sort((a, b) => a.slots - b.slots))}>
+                                        Sort by number of slots
+                                    </Button>
                                     
                                     <h6>Search for:</h6>
                                     <input className={styles.searchbar} type="text" minLength="1" required />
                                     <br/>
                                     <br/>
-                                    <Button onClick={searchItems} text="Search"/>
+                                    <Button onClick={searchItems}>
+                                        Search
+                                    </Button>
                                     <br/>
                                     <h6>FIlter items with slots no less than:</h6>
                                     <input className={styles.minimal_slots} type="number" minLength="1" required />
                                     <br/>
                                     <br/>
-                                    <Button onClick={filterItems} text="Filter"/>
+                                    <Button onClick={filterItems}>
+                                        Filter
+                                    </Button>
                                     <br/>
                                     <br/>
-                                    <Button id="hero_data-field-cancel-filter" onClick={() => context.setFilteredItems(null)} text="Remove filters"/>
+                                    <Button id="hero_data-field-cancel-filter" onClick={() => context.setFilteredItems(null)}>
+                                        Remove filters
+                                    </Button>
                                     <h6>Total amount of slots: {slotSum}</h6>
                                 </div>
                             }/>
@@ -90,7 +104,9 @@ export default function Catalogue(props) {
                                     <input className={styles.slots} type="number" minLength="1" min="0" required/>
                                     <br/>
                                     <br/>
-                                    <Button className={styles.add_button} text="Add" onClick={addNewitem}/>
+                                    <Button className={styles.add_button} onClick={addNewitem}>
+                                        Add
+                                    </Button>
 
                                 </div>
                             }/>
@@ -116,8 +132,12 @@ function CatalogItem(props) {
             </div>
             <div className={styles.element_buttons}>
                 {/*<Button className={styles.edit_button} text="Edit" onClick={() => context.setItem(props.element.id)}/>*/}
-                <Button className={styles.remove_button} text="Remove" onClick={() => context.removeItem(props.element.id)} />
-                <Button className={styles.edit_button} text="Details" onClick={() => { context.setCurrentItem(props.element); navigate(`/item/${props.element.id}`); }} />
+                <Button className={styles.remove_button} onClick={() => context.removeItem(props.element.id)}>
+                    Remove
+                </Button>
+                <Button className={styles.edit_button} onClick={() => { context.setCurrentItem(props.element); navigate(`/item/${props.element.id}`); }}>
+                    Details
+                </Button>
             </div>
         </div>
     );
