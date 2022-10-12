@@ -1,10 +1,9 @@
 import styles from "./BookNow.module.css"
-import Button from "../basic/Button"
-import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../../basic/Button"
+import { useNavigate } from "react-router-dom";
 
 export default function BookNow(props) {
     const navigate = useNavigate();
-    const path = useLocation();
     return (
         <div className={styles.book_now}>
             <center>

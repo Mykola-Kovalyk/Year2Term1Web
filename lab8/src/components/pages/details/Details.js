@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "./basic/Button";
-import ParkingContext from "./contexts/ParkingContextProvider";
-import styles from "./Item.module.css"
+import Button from "../../basic/Button";
+import ParkingContext from "../../contexts/ParkingContextProvider";
+import styles from "./Details.module.css"
 
 
 
-export default function Item(props) {
+export default function Details(props) {
     const context = useContext(ParkingContext);
     const element =  context.currentItem;
     const navigate =  useNavigate();
@@ -25,7 +25,9 @@ export default function Item(props) {
                 </div> 
                 <div>     
                     <h4>slots: {element.slots}</h4>
-                    <Button text="Go Back" onClick={() => navigate("/catalog")} />     
+                    <Button onClick={() => navigate("/catalog")}>
+                        Go Back
+                    </Button>  
                 </div>
             </div>        
         </div>

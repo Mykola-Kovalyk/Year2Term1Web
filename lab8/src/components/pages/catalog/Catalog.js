@@ -1,10 +1,10 @@
 import styles from "./Catalog.module.css"
 import { useContext, useState } from "react"
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
-import ParkingContext from "../contexts/ParkingContextProvider";
-import Button from "../basic/Button";
+import ParkingContext from "../../contexts/ParkingContextProvider";
+import Button from "../../basic/Button";
 
-export default function Catalogue(props) {
+export default function Catalog(props) {
     const navigate = useNavigate();
     const path = useLocation();
     const context = useContext(ParkingContext);
@@ -47,8 +47,8 @@ export default function Catalogue(props) {
 
     return (
 
-                <div className={styles.catalogue}>
-                    <div className={styles.catalogue_filters}>
+                <div className={styles.catalog}>
+                    <div className={styles.catalog_filters}>
                     <h2>See what's available</h2>
                             <Button className={styles.setting_add_button} onClick={() => goto("/add")}>
                                 Add
@@ -112,7 +112,7 @@ export default function Catalogue(props) {
                             }/>
                         </Routes>
                     </div>
-                    <div className={styles.catalogue_list}>
+                    <div className={styles.catalog_list}>
                         {catalogItems.map(parking => <CatalogItem key={parking.id} element={parking}/>)}
                     </div>
                 </div>

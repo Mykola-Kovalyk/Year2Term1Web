@@ -1,16 +1,16 @@
 
 
-.catalogue {
+.catalog {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.catalogue_filters {
+.catalog_filters {
     width: 50%;
     padding: 35px;
 }
 
-.catalogue_list {
+.catalog_list {
     display: grid;
     grid-template-columns: 33.3333% 33.3333% 33.3333% ;
     position: relative;
@@ -28,7 +28,7 @@
 .element_image {
     margin: -20px;
     margin-bottom: 10px;
-    background-image: url("../../../public/parking.jpg");
+    background-image: url("../../../../public/parking.jpg");
     background-size: cover;
     height: 200px;
 }

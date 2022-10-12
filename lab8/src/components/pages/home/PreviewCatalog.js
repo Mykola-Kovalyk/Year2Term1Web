@@ -1,8 +1,7 @@
 import styles from "./PreviewCatalog.module.css"
 import { useContext, useState } from "react"
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
-import ParkingContext from "./contexts/ParkingContextProvider";
-import Button from "./basic/Button";
+import ParkingContext from "../../contexts/ParkingContextProvider";
+import Button from "../../basic/Button";
 
 export default function PreviewCatalog(props) {
     const context = useContext(ParkingContext);
@@ -36,7 +35,6 @@ export default function PreviewCatalog(props) {
 
 
 function CatalogItem(props) {
-    const context = useContext(ParkingContext);
     return (
         <div className={styles.element}>
             <div className={styles.element_image}/>

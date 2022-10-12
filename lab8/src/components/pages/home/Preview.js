@@ -1,8 +1,4 @@
-import Button from "./basic/Button";
 import styles from "./Preview.module.css"
-import { useContext, useState } from "react"
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
-import ParkingContext from "./contexts/ParkingContextProvider";
 
 export default function Preview(props) {
 
