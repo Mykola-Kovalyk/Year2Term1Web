@@ -1,15 +1,16 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import {getParkingList, postParking, deleteParking } from "../../requests";
 
 const ParkingContext =  createContext({
     items: [],
     filteredItems: [],
-    filters: false,
+    filters: null,
     currentItem: null,
     addItem: (item) => {},
     setItem: (itemId) => {},
     removeItem: (itemId) => {},
     setCurrentItem: (newItem) => {},
-    setFilteredItems: (filteredItems) => {}
+    setFilters: (filters) => {}
 });
 
 
@@ -42,48 +43,47 @@ export function ParkingContextProvider(props) {
             slots: 75
         }
     ]);
-    const [filtered, setFiltered] =  useState([]);
+    const [filtersObject, setFiltersObject] =  useState({});
     const [current, setCurrent] = useState(null);
-    const [applyFilters, setApplyFilters] = useState(false);
+    const [shoudUpdate, setUpdate] = useState(false);
+
+    useEffect(() => { async function fetchData() {
+        try {
+            setItems([]);
+            const data = await getParkingList(filtersObject);
+            setItems(data);
+        } catch(exc) {
+            console.log(exc);
+        }
+    }; fetchData(); }, [shoudUpdate, filtersObject])
 
     function addNewItem(item) {
-        let new_items = list_items.slice();
-        new_items.push(item);
-        setItems(new_items);
+        postParking(item)
+        context.update();
     }
 
-    function  removeSpecifiedItem(itemId) {
-        let new_items = list_items
-            .filter((parking) => parking.id !== itemId);
-        setItems(new_items);
+    function removeSpecifiedItem(itemId) {
+        deleteParking(itemId);
+        context.update();
     } 
 
-    function  editSpecifiedItem(itemId) {
+    function editSpecifiedItem(itemId) {
         let new_items = list_items.slice();
         new_items.push(itemId);
-        setItems(new_items);
-    }
-
-    function  setFilteredList(filteredList) {
-        if(filteredList === null) {
-            setApplyFilters(false);
-        } else {
-            setApplyFilters(true);
-            setFiltered(filteredList)
-        }
+        context.update();
     }
     
 
     const context = {
         items: list_items,
-        filteredItems: filtered,
-        filters: applyFilters,
+        filters: filtersObject,
         currentItem: current,
         addItem: addNewItem,
         setItem: editSpecifiedItem,
         removeItem: removeSpecifiedItem,
         setCurrentItem: setCurrent,
-        setFilteredItems: setFilteredList
+        setFilters: setFiltersObject,
+        update: () => setUpdate(!shoudUpdate),
     };
     
 

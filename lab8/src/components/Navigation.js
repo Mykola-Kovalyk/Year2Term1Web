@@ -1,10 +1,10 @@
-import Catalog from "./pages/catalog/Catalog";
+import Catalog from "./pages/Catalog";
 import { ParkingContextProvider } from "./contexts/ParkingContextProvider";
 
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import Details from "./pages/details/Details";
-import Home from "./pages/home/Home";
+import Details from "./pages/Details";
+import Home from "./pages/Home";
 
 export default function Navigation(props) {
 
@@ -28,7 +28,6 @@ export default function Navigation(props) {
                 }/>
                 <Route path="/bookings/*" element={""}/> 
             </Routes>
-            
         </ParkingContextProvider>
     );
 }

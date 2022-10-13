@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../basic/Button";
-import ParkingContext from "../../contexts/ParkingContextProvider";
+import Button from "../basic/Button";
+import ParkingContext from "../contexts/ParkingContextProvider";
 import styles from "./Details.module.css"
 
 

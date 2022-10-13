@@ -1,36 +1,31 @@
 import styles from "./Catalog.module.css"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
-import ParkingContext from "../../contexts/ParkingContextProvider";
-import Button from "../../basic/Button";
+import ParkingContext from "../contexts/ParkingContextProvider";
+import Button from "../basic/Button";
+import Loader from "../basic/Loader";
 
 export default function Catalog(props) {
     const navigate = useNavigate();
     const path = useLocation();
     const context = useContext(ParkingContext);
-    const [idCounter, setIdCounter] =  useState(3);
 
     function addNewitem() {
-        let id = idCounter;
         let title = document.getElementsByClassName(styles.title)[0].value;
         let description = document.getElementsByClassName(styles.description)[0].value;
         let slots = parseInt(document.getElementsByClassName(styles.slots)[0].value);
-        
 
-        context.addItem({id, title, description, slots})
-        setIdCounter(idCounter + 1);
+        context.addItem({title, description, slots})
     }
 
     function searchItems() {
         let searchString =  document.getElementsByClassName(styles.searchbar)[0].value;
-        let filteredArray = context.items.filter( (facility) => facility.title.search(searchString) !== -1 ||  facility.description.search(searchString) !== -1) 
-        context.setFilteredItems(filteredArray);
+        context.setFilters({searchString: searchString});
     }
 
     function filterItems() {
         let minSlots =  parseInt(document.getElementsByClassName(styles.minimal_slots)[0].value);
-        let filteredArray = context.items.filter( (facility) => facility.slots >= minSlots) 
-        context.setFilteredItems(filteredArray);
+        context.setFilters({minSlots: parseInt(minSlots)});
     }
 
     function goto(localPath) {
@@ -38,7 +33,7 @@ export default function Catalog(props) {
     }
 
 
-    let catalogItems =  context.filters ?  context.filteredItems : context.items;
+    let catalogItems =  context.items;
 
     let slotSum = 0
     for(const catalogItem of catalogItems) {
@@ -84,7 +79,7 @@ export default function Catalog(props) {
                                     </Button>
                                     <br/>
                                     <br/>
-                                    <Button id="hero_data-field-cancel-filter" onClick={() => context.setFilteredItems(null)}>
+                                    <Button id="hero_data-field-cancel-filter" onClick={() => context.setFilters(null)}>
                                         Remove filters
                                     </Button>
                                     <h6>Total amount of slots: {slotSum}</h6>
@@ -112,9 +107,15 @@ export default function Catalog(props) {
                             }/>
                         </Routes>
                     </div>
+                    {catalogItems.length > 0 ? 
                     <div className={styles.catalog_list}>
-                        {catalogItems.map(parking => <CatalogItem key={parking.id} element={parking}/>)}
+                        {catalogItems.map(parking => <CatalogItem key={parking.id} element={parking}/>)} 
                     </div>
+                        : 
+                    <div style={{margin: "auto"}}>
+                        <Loader/>
+                    </div>
+                    }
                 </div>
     );
 }
