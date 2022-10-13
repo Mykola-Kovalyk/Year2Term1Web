@@ -99,7 +99,7 @@ export default function Catalog(props) {
                                     <input className={styles.slots} type="number" minLength="1" min="0" required/>
                                     <br/>
                                     <br/>
-                                    <Button className={styles.add_button} onClick={addNewitem}>
+                                    <Button className={styles.add_button} onClick={(e) => { e.preventDefault(); addNewitem();}}>
                                         Add
                                     </Button>
 
@@ -132,8 +132,7 @@ function CatalogItem(props) {
                 <h6>slots: {props.element.slots}</h6>     
             </div>
             <div className={styles.element_buttons}>
-                {/*<Button className={styles.edit_button} text="Edit" onClick={() => context.setItem(props.element.id)}/>*/}
-                <Button className={styles.remove_button} onClick={() => context.removeItem(props.element.id)}>
+                <Button className={styles.remove_button} onClick={(e) => { e.preventDefault(); context.removeItem(props.element.id)}}>
                     Remove
                 </Button>
                 <Button className={styles.edit_button} onClick={() => { context.setCurrentItem(props.element); navigate(`/item/${props.element.id}`); }}>

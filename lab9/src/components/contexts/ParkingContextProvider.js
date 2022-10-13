@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import {getParkingList, postParking, deleteParking } from "../../requests";
+import {getParkingList, postParking, deleteParking, updateParking } from "../../requests";
 
 const ParkingContext =  createContext({
     items: [],
@@ -7,7 +7,6 @@ const ParkingContext =  createContext({
     filters: null,
     currentItem: null,
     addItem: (item) => {},
-    setItem: (itemId) => {},
     removeItem: (itemId) => {},
     setCurrentItem: (newItem) => {},
     setFilters: (filters) => {}
@@ -57,29 +56,22 @@ export function ParkingContextProvider(props) {
         }
     }; fetchData(); }, [shoudUpdate, filtersObject])
 
-    function addNewItem(item) {
-        postParking(item)
+    async function addNewItem(item) {
+        await postParking(item)
         context.update();
     }
 
-    function removeSpecifiedItem(itemId) {
-        deleteParking(itemId);
-        context.update();
-    } 
-
-    function editSpecifiedItem(itemId) {
-        let new_items = list_items.slice();
-        new_items.push(itemId);
+    async function removeSpecifiedItem(itemId) {
+        await deleteParking(itemId);
         context.update();
     }
-    
+
 
     const context = {
         items: list_items,
         filters: filtersObject,
         currentItem: current,
         addItem: addNewItem,
-        setItem: editSpecifiedItem,
         removeItem: removeSpecifiedItem,
         setCurrentItem: setCurrent,
         setFilters: setFiltersObject,
