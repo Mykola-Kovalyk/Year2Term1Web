@@ -1,0 +1,25 @@
+{
+    "iterator": 13,
+    "facilities": {
+        "7": {
+            "title": "Franka st.",
+            "description": "The biggest parking facility in the city.",
+            "slots": 300
+        },
+        "8": {
+            "title": "Shevtchenka st.",
+            "description": "Parking facility in the central part of the city. Usually crowded.",
+            "slots": 250
+        },
+        "9": {
+            "title": "G. Vashyngtona st.",
+            "description": "Parking facility in the suburbs of the city, the biggest in the oblast.",
+            "slots": 1000
+        },
+        "12": {
+            "title": "Pasichna st.",
+            "description": "A big parking facility in the suburbs of the city. Not as big as the one at Vashyngtona st, but comparably huge.",
+            "slots": 850
+        }
+    }
+}
