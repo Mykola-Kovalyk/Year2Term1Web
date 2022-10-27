@@ -5,19 +5,26 @@ import { setTime } from '../../data/reducers';
 import Button from '../basic/Button';
 
 function Cart() {
-    const cart =  useSelector((state) => state.items.cart);
+    const cart = useSelector((state) => state.items.cart);
     return (
         <div className={styles.cart}>
             <div className={styles.cart_list}>
-                {cart.map(entry => <CartItem key={entry.item.id} element={entry.item} time={entry.time}/>)}
+                {cart.length > 0 ? cart.map(entry => <CartItem key={entry.item.id} element={entry.item} time={entry.time}/>) : <div style={{margin: "50px", }}>No items in cart...</div>}
             </div>
             <div className={styles.checkout}>
                 <h2>Checkout</h2>
                 You are about to purchase service for these parkings.
                 <br/><br/>
-                <Button>
-                    Continue
-                </Button>
+                {cart.length > 0 ?
+                    <Button >
+                        Continue
+                    </Button>
+                    :
+                    <div>
+                        <br/>
+                        No items to checkout, add some in the catalog.
+                    </div>
+                }
             </div>
         </div>
     )

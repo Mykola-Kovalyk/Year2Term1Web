@@ -16,32 +16,7 @@ const ParkingContext =  createContext({
 
 export function ParkingContextProvider(props) {
 
-    const [list_items, setItems] =  useState([
-        {
-            id: 1,
-            title: "Franko st.",
-            description: "The parking near this street allows medium to large number of cars, is generally full throughtout working hours.",
-            slots: 50
-        },
-        {
-            id: 2,
-            title: "Schevtschenka st.",
-            description: "No description provided.",
-            slots: 75
-        },
-        {
-            id: 3,
-            title: "Schevtschenka st.",
-            description: "No description provided.",
-            slots: 75
-        },
-        {
-            id: 4,
-            title: "Schevtschenka st.",
-            description: "No description provided.",
-            slots: 75
-        }
-    ]);
+    const [list_items, setItems] =  useState([]);
     const [filtersObject, setFiltersObject] =  useState({});
     const [current, setCurrent] = useState(null);
     const [shoudUpdate, setUpdate] = useState(false);

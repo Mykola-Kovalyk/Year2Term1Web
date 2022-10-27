@@ -83,3 +83,13 @@
 .minimal_slots {
     
 }
+
+.remove_cart_button {
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.remove_cart_button:hover {
+    background-color: #800020;
+}

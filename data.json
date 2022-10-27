@@ -20,6 +20,26 @@
             "title": "Pasichna st.",
             "description": "A big parking facility in the suburbs of the city. Not as big as the one at Vashyngtona st, but comparably huge.",
             "slots": 850
+        },
+        "1": {
+            "title": "Franko st.",
+            "description": "The parking near this street allows medium to large number of cars, is generally full throughtout working hours.",
+            "slots": 50
+        },
+        "2": {
+            "title": "Schevtschenka st.",
+            "description": "No description provided.",
+            "slots": 75
+        },
+        "3": {
+            "title": "Schevtschenka st.",
+            "description": "No description provided.",
+            "slots": 65
+        },
+        "4": {
+            "title": "Schevtschenka st.",
+            "description": "No description provided.",
+            "slots": 45
         }
     }
 }

@@ -141,13 +141,14 @@ function CatalogItem(props) {
                 <Button className={styles.edit_button} onClick={() => { context.setCurrentItem(props.element); navigate(`/item/${props.element.id}`); }}>
                     Details
                 </Button>
+                <br/><br/>
                 {
                     cart.some(item => item.item.id === props.element.id) ?
-                    <Button className={styles.remove_button} onClick={() => { dispatch(removeFromCart(props.element)) }}>
+                    <Button className={styles.remove_cart_button} onClick={() => { dispatch(removeFromCart(props.element)) }}>
                         Remove from cart
                     </Button>
                     :
-                    <Button className={styles.edit_button} onClick={() => { dispatch(addToCart(props.element)) }}>
+                    <Button className={styles.cart_button} onClick={() => { dispatch(addToCart(props.element)) }}>
                         Add to cart
                     </Button>
                 }
