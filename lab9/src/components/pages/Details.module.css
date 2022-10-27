@@ -1,0 +1,19 @@
+
+.item {
+    display: flex;
+    padding: 30px;
+    height: 400px;
+}
+
+.image {
+    margin: 0px 20px 0px 0px;
+    background-image: url("../../../public/parking.jpg");
+    background-size: cover;
+    width: 40%;
+}
+
+.text {
+    position: relative;
+    width: 60%;
+    height: 100%;
+}
