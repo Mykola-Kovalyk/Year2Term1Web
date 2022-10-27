@@ -5,6 +5,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 export default function Navigation(props) {
 
@@ -26,7 +27,10 @@ export default function Navigation(props) {
                 <Route path="/item/*" element={
                     <Details />
                 }/>
-                <Route path="/bookings/*" element={""}/> 
+                <Route path="/cart/*" element={
+                    <Cart />
+                }/> 
+
             </Routes>
         </ParkingContextProvider>
     );

@@ -1,9 +1,13 @@
 import NavLink from "./basic/NavLink"
 import Button from "./basic/Button"
 import styles from "./Header.module.css"
+import { useSelector } from "react-redux"
 
 
 export default function Header(props) {
+
+    const data = useSelector((state) => state.items.someVar);
+
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
@@ -16,7 +20,7 @@ export default function Header(props) {
             </div>
             <div className={styles.see_parkings}>
                 <Button>
-                    Help
+                    Login
                 </Button>
             </div>
         </header>

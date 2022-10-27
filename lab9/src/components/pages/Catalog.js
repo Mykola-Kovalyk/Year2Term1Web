@@ -4,6 +4,8 @@ import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
 import ParkingContext from "../contexts/ParkingContextProvider";
 import Button from "../basic/Button";
 import Loader from "../basic/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../data/reducers";
 
 export default function Catalog(props) {
     const navigate = useNavigate();
@@ -19,21 +21,20 @@ export default function Catalog(props) {
     }
 
     function searchItems() {
-        let searchString =  document.getElementsByClassName(styles.searchbar)[0].value;
-        context.setFilters({searchString: searchString});
+        let searchString = document.getElementsByClassName(styles.searchbar)[0].value;
+        context.setFilters({ searchString: searchString });
     }
 
     function filterItems() {
-        let minSlots =  parseInt(document.getElementsByClassName(styles.minimal_slots)[0].value);
-        context.setFilters({minSlots: parseInt(minSlots)});
+        let minSlots = parseInt(document.getElementsByClassName(styles.minimal_slots)[0].value);
+        context.setFilters({ minSlots: parseInt(minSlots) });
     }
 
     function goto(localPath) {
         navigate(`${path.pathname.replace(/\/[^/]*$/, "")}${localPath}`)
     }
 
-
-    let catalogItems =  context.items;
+    let catalogItems = context.items;
 
     let slotSum = 0
     for(const catalogItem of catalogItems) {
@@ -41,7 +42,6 @@ export default function Catalog(props) {
     }
 
     return (
-
                 <div className={styles.catalog}>
                     <div className={styles.catalog_filters}>
                     <h2>See what's available</h2>
@@ -123,6 +123,9 @@ export default function Catalog(props) {
 function CatalogItem(props) {
     const context = useContext(ParkingContext);
     const navigate = useNavigate();
+    const cart = useSelector((state) => state.items.cart)
+    const dispatch = useDispatch();
+
     return (
         <div className={styles.element}>
             <div className={styles.element_image}/>
@@ -138,6 +141,16 @@ function CatalogItem(props) {
                 <Button className={styles.edit_button} onClick={() => { context.setCurrentItem(props.element); navigate(`/item/${props.element.id}`); }}>
                     Details
                 </Button>
+                {
+                    cart.some(item => item.item.id === props.element.id) ?
+                    <Button className={styles.remove_button} onClick={() => { dispatch(removeFromCart(props.element)) }}>
+                        Remove from cart
+                    </Button>
+                    :
+                    <Button className={styles.edit_button} onClick={() => { dispatch(addToCart(props.element)) }}>
+                        Add to cart
+                    </Button>
+                }
             </div>
         </div>
     );
