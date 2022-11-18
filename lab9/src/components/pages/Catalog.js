@@ -58,7 +58,7 @@ export default function Catalog(props) {
                             <Route path="/filter" element={
                                 <div>
                                     <br/>
-                                    <Button onclick={() => context.setFilteredItems(context.items.sort((a, b) => a.slots - b.slots))}>
+                                    <Button onClick={() => context.setFilteredItems(context.items.sort((a, b) => a.slots - b.slots))}>
                                         Sort by number of slots
                                     </Button>
                                     

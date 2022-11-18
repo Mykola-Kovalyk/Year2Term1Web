@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 export default function Navigation(props) {
 
@@ -29,6 +31,12 @@ export default function Navigation(props) {
                 }/>
                 <Route path="/cart/*" element={
                     <Cart />
+                }/> 
+                <Route path="/checkout/*" element={
+                    <Checkout />
+                }/>
+                <Route path="/checkout-success/*" element={
+                    <CheckoutSuccess />
                 }/> 
 
             </Routes>

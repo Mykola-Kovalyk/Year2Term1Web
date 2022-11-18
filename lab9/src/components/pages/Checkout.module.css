@@ -1,0 +1,18 @@
+.checkout {
+    max-width: 300px;
+    margin: 30px auto;
+}
+
+.text_input {
+    width: 100%;
+}
+
+.checkbox {
+    display:flex;
+}
+
+
+.error {
+    font-size: small;
+    color: red;
+}

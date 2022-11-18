@@ -3,9 +3,11 @@ import styles from "./Cart.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { setTime } from '../../data/reducers';
 import Button from '../basic/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
     const cart = useSelector((state) => state.items.cart);
+    const navigate = useNavigate()
     return (
         <div className={styles.cart}>
             <div className={styles.cart_list}>
@@ -16,7 +18,7 @@ function Cart() {
                 You are about to purchase service for these parkings.
                 <br/><br/>
                 {cart.length > 0 ?
-                    <Button >
+                    <Button onClick={() => navigate("/checkout")}>
                         Continue
                     </Button>
                     :
