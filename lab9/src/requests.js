@@ -21,3 +21,11 @@ export const updateParking = (id, body) =>
 
 export const deleteParking = (id) =>
     api.delete(`/${id}`);
+
+export const logIn = async (body) =>  {
+    console.log(body)
+    return (await api.get('/login', { params: body })).data
+}
+    
+export const register = async (body) => 
+    (await api.post('/register', body)).data

@@ -2,11 +2,22 @@ import NavLink from "./basic/NavLink"
 import Button from "./basic/Button"
 import styles from "./Header.module.css"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 export default function Header(props) {
-
+    const [updateState, update] = useState(false)
     const data = useSelector((state) => state.items.someVar);
+    const navigate =  useNavigate();
+
+    let loginData = window.localStorage.loginData
+    let loggedIn = !(loginData == null)
+
+    const logOut = () => {
+        window.localStorage.removeItem("loginData")
+
+    }
 
     return (
         <header className={styles.header}>
@@ -19,8 +30,8 @@ export default function Header(props) {
                 <NavLink className={styles.link} link="/cart">Cart</NavLink>
             </div>
             <div className={styles.see_parkings}>
-                <Button>
-                    Login
+                <Button onClick={() => {if(loggedIn) { logOut() } navigate("/login"); update(!updateState)}}>
+                    {loggedIn ? "Log Out" : "Log In"}
                 </Button>
             </div>
         </header>

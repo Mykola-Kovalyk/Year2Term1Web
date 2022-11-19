@@ -1,10 +1,10 @@
 import json
 from main import app
-from flask import request
+from flask import request, abort
 from time import sleep
 
 
-data = { "iterator" : 0, "facilities": {} } 
+data = { "iterator" : 0, "facilities": {}, "people": {} } 
 data_path =  "data.json"
 
 def update_data():
@@ -64,6 +64,37 @@ def delete_parking(id):
     del data_dict[id]
     update_data()
     return 'OK'
+
+
+
+
+@app.route('/parking/login', methods=['GET'])
+def login():    
+    email = request.args.get("email")
+    password = request.args.get("password")
+
+    person = data["people"][email]
+
+    if person["password"] != password:
+        abort(400, "Incorrect password")
+
+    return person
+
+        
+
+@app.route('/parking/register', methods=['POST'])
+def register():
+    person = request.json
+    people = data["people"]
+
+    if(person["email"] in people):
+        abort(400, "Person already exists")
+
+    people[person["email"]] = person
+    update_data()
+
+    return person
+
 
 
 

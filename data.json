@@ -41,5 +41,12 @@
             "description": "No description provided.",
             "slots": 45
         }
+    },
+    "people": {
+        "whatever@gmail.com": {
+            "name": "\u041a\u043e\u0432\u0430\u043b\u0438\u043a \u041c\u0438\u043a\u043e\u043b\u0430",
+            "email": "whatever@gmail.com",
+            "password": "12345"
+        }
     }
 }
