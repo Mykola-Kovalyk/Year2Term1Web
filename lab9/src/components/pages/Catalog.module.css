@@ -1,0 +1,95 @@
+
+
+.catalog {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.catalog_filters {
+    width: 50%;
+    padding: 35px;
+}
+
+.catalog_list {
+    display: grid;
+    grid-template-columns: 33.3333% 33.3333% 33.3333% ;
+    position: relative;
+    width: 100%;
+}
+
+.element {
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+}
+
+.element_image {
+    margin: -20px;
+    margin-bottom: 10px;
+    background-image: url("../../../public/parking.jpg");
+    background-size: cover;
+    height: 200px;
+}
+
+
+.element_text {
+    height: 200px;
+}
+
+.remove_button {
+    margin-left: 10px;;
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+    margin-right: 10px;
+}
+
+.remove_button:hover {
+    background-color: #800020;
+}
+
+.setting_add_button {
+    margin: 0px 10px;
+}
+
+.setting_exit_button {
+    margin-left: 10px;;
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.setting_exit_button:hover {
+    background-color: #800020;
+}
+
+.title {
+}
+
+.description {
+
+}
+
+.slots {
+
+}
+
+.searchbar {
+    
+}
+
+.minimal_slots {
+    
+}
+
+.remove_cart_button {
+    background-color: #777;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.remove_cart_button:hover {
+    background-color: #800020;
+}

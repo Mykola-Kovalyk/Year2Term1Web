@@ -1,0 +1,27 @@
+.cart {
+    display: flex;
+    max-width: 1000px;
+    margin: 30px auto;
+    min-height: 400px;
+}
+
+.cart_list {
+    width: 60%;
+}
+
+.cart_item {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.item_time {
+    display: flex;
+}
+
+.item_time_value {
+    margin: 5px;
+}
